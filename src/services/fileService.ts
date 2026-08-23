@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-// 1. Limpiamos la URL quitando la barra final si la tiene
-const RAW_URL = import.meta.env.VITE_API_URL || 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
-const BASE_URL = RAW_URL.replace(/\/+$/, ''); // Elimina barras inclinadas al final
+// Cast a 'any' para evitar que TypeScript bloquee el acceso a 'env'
+const envUrl = (import.meta as any).env?.VITE_API_URL;
+
+const BASE_URL = (envUrl && envUrl.trim() !== '') 
+  ? envUrl.replace(/\/+$/, '') 
+  : 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
+
 const API_BASE_URL = `${BASE_URL}/api`;
 
 export interface UploadImageResponse {
