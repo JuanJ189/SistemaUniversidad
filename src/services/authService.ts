@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { LoginDTO, RegisterDTO, AuthResponse } from '../types/auth';
 
-const API_URL = '/api/auth';
+const envUrl = (import.meta as any).env?.VITE_API_URL;
+const BASE_URL = (envUrl && envUrl.trim() !== '')
+  ? envUrl.replace(/\/+$/, '')
+  : 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
+
+const API_URL = `${BASE_URL}/api/auth`;
 
 // Configurar axios para incluir el token en las cabeceras
 axios.interceptors.request.use((config) => {
