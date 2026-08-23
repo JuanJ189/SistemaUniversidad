@@ -1,66 +1,75 @@
-import axios from 'axios';
-import { LoginDTO, RegisterDTO, AuthResponse } from '../types/auth';
+import { LoginDTO, RegisterDTO, AuthResponse, User } from '../types/auth';
+import { apiUrl } from '../config/api';
+import { httpClient } from './httpClient';
 
-const envUrl = (import.meta as any).env?.VITE_API_URL;
-const BASE_URL = (envUrl && envUrl.trim() !== '')
-  ? envUrl.replace(/\/+$/, '')
-  : 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
+const API_URL = apiUrl('/api/auth');
 
-const API_URL = `${BASE_URL}/api/auth`;
+const normalizeUser = (raw: Record<string, unknown> | null | undefined): User | null => {
+  if (!raw) return null;
 
-// Configurar axios para incluir el token en las cabeceras
-axios.interceptors.request.use((config) => {
-  const token = localStorage.getItem('auth-token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+  const id = raw.id ?? raw.Id;
+  const email = raw.email ?? raw.Email;
+  const role = raw.role ?? raw.Role;
 
-// Interceptor de respuesta para manejar tokens expirados
-axios.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      // Token expirado o inválido - solo limpiar localStorage
-      // No redirigir automáticamente para evitar loops
-      console.log('Token expirado o inválido');
-    }
-    return Promise.reject(error);
-  }
-);
+  if (!id || !email) return null;
+
+  const roleObj = role as Record<string, unknown> | undefined;
+
+  return {
+    id: String(id),
+    email: String(email),
+    firstName: String(raw.firstName ?? raw.FirstName ?? ''),
+    lastName: String(raw.lastName ?? raw.LastName ?? ''),
+    phoneNumber: (raw.phoneNumber ?? raw.PhoneNumber ?? null) as string | null,
+    role: {
+      id: Number(roleObj?.id ?? roleObj?.Id ?? 0),
+      name: String(roleObj?.name ?? roleObj?.Name ?? 'User'),
+      scope: String(roleObj?.scope ?? roleObj?.Scope ?? ''),
+      description: String(roleObj?.description ?? roleObj?.Description ?? ''),
+      state: String(roleObj?.state ?? roleObj?.State ?? ''),
+      users: (roleObj?.users ?? roleObj?.Users ?? []) as unknown[],
+      createdAtDateTime: String(roleObj?.createdAtDateTime ?? roleObj?.CreatedAtDateTime ?? ''),
+      updatedAtDateTime: String(roleObj?.updatedAtDateTime ?? roleObj?.UpdatedAtDateTime ?? ''),
+      idUserCreated: (roleObj?.idUserCreated ?? roleObj?.IdUserCreated ?? null) as number | null,
+      idUserUpdated: (roleObj?.idUserUpdated ?? roleObj?.IdUserUpdated ?? null) as number | null,
+    },
+  };
+};
 
 export const authService = {
   async login(credentials: LoginDTO): Promise<AuthResponse> {
-    const response = await axios.post(`${API_URL}/login`, credentials);
-    console.log('authService: login - response.data:', response.data);
-    console.log('authService: login - response.data.data:', response.data.data);
-    console.log('authService: login - response.data.data?.token:', response.data.data?.token);
-    
-    if (response.data.data?.token) {
-      console.log('authService: login - Guardando token y usuario en localStorage');
-      localStorage.setItem('auth-token', response.data.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.data.user));
-      console.log('authService: login - Token guardado:', localStorage.getItem('auth-token') ? 'exitoso' : 'fallido');
-      console.log('authService: login - Usuario guardado:', localStorage.getItem('user') ? 'exitoso' : 'fallido');
-    } else {
-      console.log('authService: login - No se encontró token en la respuesta');
+    const response = await httpClient.post(`${API_URL}/login`, credentials);
+    const payload = response.data?.data ?? response.data;
+
+    if (payload?.token) {
+      localStorage.setItem('auth-token', payload.token);
+      const user = normalizeUser(payload.user);
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+      }
     }
+
     return response.data;
   },
 
   async register(userData: RegisterDTO): Promise<AuthResponse> {
-    const response = await axios.post(`${API_URL}/register`, userData);
-    if (response.data.data?.token) {
-      localStorage.setItem('auth-token', response.data.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.data.user));
+    const response = await httpClient.post(`${API_URL}/register`, userData);
+    const payload = response.data?.data ?? response.data;
+
+    if (payload?.token) {
+      localStorage.setItem('auth-token', payload.token);
+      const user = normalizeUser(payload.user);
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+      }
     }
+
     return response.data;
   },
 
   async logout(): Promise<void> {
     try {
-      await axios.post(`${API_URL}/logout`);
+      await httpClient.post(`${API_URL}/logout`);
     } catch (error) {
       console.error('Error en logout:', error);
     } finally {
@@ -69,29 +78,20 @@ export const authService = {
     }
   },
 
-  getCurrentUser() {
+  getCurrentUser(): User | null {
     try {
       const userStr = localStorage.getItem('user');
       const token = localStorage.getItem('auth-token');
-      
-      console.log('authService: getCurrentUser - userStr:', userStr);
-      console.log('authService: getCurrentUser - token:', token ? 'exists' : 'null');
-      
+
       if (!userStr || !token) {
-        console.log('authService: getCurrentUser - No hay userStr o token');
         return null;
       }
-      
-      const user = JSON.parse(userStr);
-      console.log('authService: getCurrentUser - parsed user:', user);
-      
-      // Validar que el usuario tenga los campos básicos
-      if (!user || !user.id || !user.email) {
-        console.log('authService: getCurrentUser - Usuario inválido, faltan campos');
+
+      const user = normalizeUser(JSON.parse(userStr));
+      if (!user) {
         return null;
       }
-      
-      console.log('authService: getCurrentUser - Usuario válido retornado');
+
       return user;
     } catch (error) {
       console.error('Error parsing user from localStorage:', error);
@@ -107,9 +107,8 @@ export const authService = {
     try {
       const token = localStorage.getItem('auth-token');
       if (!token) return false;
-      
-      // Hacer una petición al servidor para validar el token
-      await axios.get(`${API_URL}/validate`);
+
+      await httpClient.get(`${API_URL}/validate`);
       return true;
     } catch (error) {
       console.error('Token validation failed:', error);
@@ -124,18 +123,12 @@ export const authService = {
 
   isTokenExpired(token: string): boolean {
     try {
-      // Decodificar el token JWT para obtener la fecha de expiración
       const payload = JSON.parse(atob(token.split('.')[1]));
-      const expirationTime = payload.exp * 1000; // Convertir a milisegundos
-      const currentTime = Date.now();
-      
-      // El token ha expirado si la hora actual es mayor que la hora de expiración
-      return currentTime >= expirationTime;
+      const expirationTime = payload.exp * 1000;
+      return Date.now() >= expirationTime;
     } catch (error) {
       console.error('Error al verificar expiración del token:', error);
-      // Si hay error al decodificar, considerar el token como expirado por seguridad
       return true;
     }
-  }
+  },
 };
-

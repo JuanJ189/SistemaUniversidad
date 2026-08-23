@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiFetch } from '../services/httpClient';
 
 const ResetPasswordPage: React.FC = () => {
   const [form, setForm] = useState({ email: '', newPassword: '' });
@@ -20,10 +21,9 @@ const ResetPasswordPage: React.FC = () => {
     setSuccess(null);
     setError(null);
     try {
-      const res = await fetch('/api/auth/reset-password', {
+      const res = await apiFetch('/api/auth/reset-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
       });
       const data = await res.json();
       if (res.ok && data.success !== false) {

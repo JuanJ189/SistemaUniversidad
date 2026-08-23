@@ -304,7 +304,7 @@ const CheckoutPage: React.FC = () => {
                         <h3 className="font-medium text-gray-900">{item.productName}</h3>
                         <p className="text-sm text-gray-500">Cantidad: {item.quantity}</p>
                         <p className="text-sm font-medium text-gray-900">
-                          {formatPrice(item.price * item.quantity)}
+                          {formatPrice(item.unitPrice * item.quantity)}
                         </p>
                       </div>
                     </div>

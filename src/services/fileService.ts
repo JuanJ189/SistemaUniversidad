@@ -1,13 +1,5 @@
-import axios from 'axios';
-
-// Cast a 'any' para evitar que TypeScript bloquee el acceso a 'env'
-const envUrl = (import.meta as any).env?.VITE_API_URL;
-
-const BASE_URL = (envUrl && envUrl.trim() !== '') 
-  ? envUrl.replace(/\/+$/, '') 
-  : 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
-
-const API_BASE_URL = `${BASE_URL}/api`;
+import { API_BASE_URL } from '../config/api';
+import { httpClient } from './httpClient';
 
 export interface UploadImageResponse {
   success: boolean;
@@ -22,14 +14,13 @@ export const fileService = {
     formData.append('file', file);
 
     try {
-      const response = await axios.post<UploadImageResponse>(
-        `${API_BASE_URL}/file/upload-image`,
+      const response = await httpClient.post<UploadImageResponse>(
+        '/api/file/upload-image',
         formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-          withCredentials: true,
         }
       );
 
@@ -44,9 +35,7 @@ export const fileService = {
 
   async deleteImage(fileName: string): Promise<void> {
     try {
-      await axios.delete(`${API_BASE_URL}/file/delete-image/${fileName}`, {
-        withCredentials: true,
-      });
+      await httpClient.delete(`/api/file/delete-image/${fileName}`);
     } catch (error: any) {
       if (error.response?.data) {
         throw new Error(error.response.data.message || 'Error al eliminar la imagen');
@@ -63,6 +52,6 @@ export const fileService = {
     }
 
     const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
-    return `${BASE_URL}/${cleanPath}`;
-  }
+    return `${API_BASE_URL}/${cleanPath}`;
+  },
 };

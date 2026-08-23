@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { CartItemDTO, CartDTO } from '../types/cart';
+import { apiFetch } from '../services/httpClient';
 
 interface CartContextType {
   cart: CartDTO | null;
@@ -59,12 +60,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await fetch('/api/cart/add', {
+      const response = await apiFetch('/api/cart/add', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify({ productId, quantity }),
       });
 
@@ -86,12 +83,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await fetch('/api/cart/update', {
+      const response = await apiFetch('/api/cart/update', {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify({ cartItemId, quantity }),
       });
 
@@ -112,12 +105,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await fetch('/api/cart/remove', {
+      const response = await apiFetch('/api/cart/remove', {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify({ cartItemId }),
       });
 
@@ -139,9 +128,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await fetch('/api/cart/clear', {
+      const response = await apiFetch('/api/cart/clear', {
         method: 'DELETE',
-        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -162,9 +150,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await fetch('/api/cart', {
-        credentials: 'include',
-      });
+      const response = await apiFetch('/api/cart');
 
       if (!response.ok) {
         throw new Error('Error al cargar carrito');
@@ -184,12 +170,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
       console.log('Enviando datos del pedido:', orderData);
 
-      const response = await fetch('/api/cart/checkout', {
+      const response = await apiFetch('/api/cart/checkout', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify(orderData),
       });
 

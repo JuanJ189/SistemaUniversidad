@@ -1,16 +1,15 @@
-import axios from 'axios';
-import { ChatbotMessage, ChatbotResponse, ProductRecommendation, ChatbotContext } from '../types/chatbot';
+import { ChatbotResponse, ProductRecommendation, ChatbotContext } from '../types/chatbot';
+import { httpClient } from './httpClient';
 
 const API_URL = '/api/Chatbot';
 
 export const chatbotService = {
-  // Enviar mensaje al chatbot
   async sendMessage(message: string, context?: string): Promise<ChatbotResponse> {
     try {
-      const response = await axios.post(`${API_URL}/chat`, {
+      const response = await httpClient.post(`${API_URL}/chat`, {
         message,
         context,
-        sessionId: chatbotService.getSessionId()
+        sessionId: chatbotService.getSessionId(),
       });
       return response.data;
     } catch (error: any) {
@@ -19,10 +18,9 @@ export const chatbotService = {
     }
   },
 
-  // Obtener recomendaciones de productos
   async getRecommendations(query: string): Promise<ProductRecommendation[]> {
     try {
-      const response = await axios.get(`${API_URL}/recommendations?query=${encodeURIComponent(query)}`);
+      const response = await httpClient.get(`${API_URL}/recommendations?query=${encodeURIComponent(query)}`);
       return response.data;
     } catch (error: any) {
       console.error('Error obteniendo recomendaciones:', error);
@@ -30,10 +28,9 @@ export const chatbotService = {
     }
   },
 
-  // Obtener contexto del chatbot
   async getContext(): Promise<ChatbotContext> {
     try {
-      const response = await axios.get(`${API_URL}/context`);
+      const response = await httpClient.get(`${API_URL}/context`);
       return response.data;
     } catch (error: any) {
       console.error('Error obteniendo contexto del chatbot:', error);
@@ -41,12 +38,11 @@ export const chatbotService = {
     }
   },
 
-  // Generar descripción de producto
   async generateDescription(productName: string, category: string): Promise<string> {
     try {
-      const response = await axios.post(`${API_URL}/generate-description`, {
+      const response = await httpClient.post(`${API_URL}/generate-description`, {
         productName,
-        category
+        category,
       });
       return response.data.description;
     } catch (error: any) {
@@ -55,10 +51,9 @@ export const chatbotService = {
     }
   },
 
-  // Verificar estado del chatbot
   async checkHealth(): Promise<{ status: string; service: string; features: string[] }> {
     try {
-      const response = await axios.get(`${API_URL}/health`);
+      const response = await httpClient.get(`${API_URL}/health`);
       return response.data;
     } catch (error: any) {
       console.error('Error verificando estado del chatbot:', error);
@@ -66,7 +61,6 @@ export const chatbotService = {
     }
   },
 
-  // Generar ID de sesión único
   getSessionId(): string {
     let sessionId = localStorage.getItem('chatbot-session-id');
     if (!sessionId) {
@@ -76,8 +70,7 @@ export const chatbotService = {
     return sessionId;
   },
 
-  // Limpiar sesión del chatbot
   clearSession(): void {
     localStorage.removeItem('chatbot-session-id');
-  }
+  },
 };

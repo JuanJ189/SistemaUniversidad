@@ -14,7 +14,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({
   children,
   requiredRole = 'Any',
   requiredPermission,
-  fallbackPath = '/dashboard'
+  fallbackPath = '/catalog'
 }) => {
   const { isAuthenticated, loading } = useAuth();
   const { userRole, hasPermission, canAccessRoute } = useRole();

@@ -3,6 +3,7 @@ import { Package, Search, Filter, Eye, CheckCircle, XCircle, Clock, Truck, Refre
 import Sidebar from '../components/Sidebar';
 import { useSidebar } from '../contexts/SidebarContext';
 import { useRole } from '../hooks/useRole';
+import { apiFetch } from '../services/httpClient';
 
 interface OrderItem {
   id: number;
@@ -78,9 +79,7 @@ const OrdersManagementPage: React.FC = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/order/all', {
-        credentials: 'include'
-      });
+      const response = await apiFetch('/api/order/all');
 
       if (!response.ok) {
         throw new Error('Error al cargar los pedidos');
@@ -98,13 +97,9 @@ const OrdersManagementPage: React.FC = () => {
   const updateOrderStatus = async (orderId: number, newStatus: string) => {
     try {
       setUpdatingStatus(orderId);
-      const response = await fetch(`/api/order/${orderId}/status`, {
+      const response = await apiFetch(`/api/order/${orderId}/status`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify({ status: newStatus })
+        body: JSON.stringify({ status: newStatus }),
       });
 
       if (!response.ok) {

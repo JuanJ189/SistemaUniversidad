@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import OrderStatusProgress from '../components/OrderStatusProgress';
 import { useSidebar } from '../contexts/SidebarContext';
 import { useAuth } from '../contexts/AuthContext';
+import { apiFetch } from '../services/httpClient';
 
 interface OrderItem {
   id: number;
@@ -83,9 +84,7 @@ const MyOrdersPage: React.FC = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/order/my-orders', {
-        credentials: 'include'
-      });
+      const response = await apiFetch('/api/order/my-orders');
 
       if (!response.ok) {
         throw new Error('Error al cargar los pedidos');
