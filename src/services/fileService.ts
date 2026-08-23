@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-// Toma la URL desde el archivo .env o usa la de Azure por defecto
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
+// 1. Limpiamos la URL quitando la barra final si la tiene
+const RAW_URL = import.meta.env.VITE_API_URL || 'https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net';
+const BASE_URL = RAW_URL.replace(/\/+$/, ''); // Elimina barras inclinadas al final
 const API_BASE_URL = `${BASE_URL}/api`;
 
 export interface UploadImageResponse {
@@ -50,16 +51,14 @@ export const fileService = {
     }
   },
 
-  // Función para obtener la URL completa de la imagen
   getImageUrl(imagePath: string): string {
     if (!imagePath) return '';
-    
-    // Si ya es una URL completa, retornarla tal como está
+
     if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
       return imagePath;
     }
-    
-    // Si es una ruta relativa, construir la URL completa usando la variable BASE_URL
-    return `${BASE_URL}/${imagePath.startsWith('/') ? imagePath.slice(1) : imagePath}`;
+
+    const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+    return `${BASE_URL}/${cleanPath}`;
   }
 };
