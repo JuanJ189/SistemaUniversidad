@@ -1,4 +1,4 @@
 {
-  "installCommand": "npx pnpm install",
-  "buildCommand": "npx pnpm run build"
+  "installCommand": "npm install --no-bin-links || npm install",
+  "buildCommand": "npx vite build"
 }
