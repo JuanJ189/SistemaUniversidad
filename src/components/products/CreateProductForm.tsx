@@ -189,12 +189,12 @@ const CreateProductForm: React.FC<CreateProductFormProps> = ({ onSubmit, onCance
                 onChange={(e) => setFormData({ ...formData, categoryId: parseInt(e.target.value) || 1 })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
               >
-                <option value={1}>1 - Electrónicos</option>
-                <option value={2}>2 - Gaming</option>
-                <option value={3}>3 - Ropa</option>
-                <option value={4}>4 - Hogar</option>
-                <option value={5}>5 - Deportes</option>
-                <option value={6}>6 - Libros</option>
+                <option value={1}>1 - Poleras</option>
+<option value={2}>2 - Pantalones</option>
+<option value={3}>3 - Chompas</option>
+<option value={4}>4 - Chaquetas</option>
+<option value={5}>5 - Camisas</option>
+<option value={6}>6 - Vestidos</option>
               </select>
             </div>
           </div>

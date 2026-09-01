@@ -49,13 +49,12 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
       // Cargar categorías (esto requeriría un endpoint adicional)
       // Por ahora usamos datos de ejemplo
       setCategories([
-        { id: 1, name: 'Electrónicos' },
-        { id: 2, name: 'Ropa' },
-        { id: 3, name: 'Hogar' },
-        { id: 4, name: 'Deportes' }
+        { id: 1, name: 'Poleras' },
+        { id: 2, name: 'Pantalones' },
+        { id: 3, name: 'Chompas' },
+        { id: 4, name: 'Chaquetas' }
       ]);
-
-      // Cargar marcas únicas de los productos
+            // Cargar marcas únicas de los productos
       const allProducts = await productService.getProducts({ pageSize: 1000 });
       const uniqueBrands = [...new Set(allProducts.data.map(p => p.brand).filter(Boolean))];
       setBrands(uniqueBrands as string[]);
