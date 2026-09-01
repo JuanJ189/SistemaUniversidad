@@ -129,7 +129,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
             onClick={() => handlePageChange(page)}
             className={`px-3 py-2 text-sm font-medium rounded-lg ${
               page === currentPage
-                ? 'bg-green-600 text-white'
+                ? 'bg-rose-600 text-white'
                 : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50'
             }`}
           >

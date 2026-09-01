@@ -93,7 +93,7 @@ const ResetPasswordPage: React.FC = () => {
             {error && <p className="text-red-400 text-center mt-2">{error}</p>}
             <button
               type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium transition-colors"
+              className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-medium transition-colors"
               disabled={loading}
             >
               {loading ? 'Enviando...' : 'Restablecer contraseña'}

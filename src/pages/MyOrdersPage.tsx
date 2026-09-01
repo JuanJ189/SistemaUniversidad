@@ -165,7 +165,7 @@ const MyOrdersPage: React.FC = () => {
                 </div>
                 <button
                   onClick={fetchOrders}
-                  className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                  className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <RefreshCw className="w-4 h-4" />
                   Actualizar
@@ -185,7 +185,7 @@ const MyOrdersPage: React.FC = () => {
                   <p className="text-red-600 mb-4">{error}</p>
                   <button
                     onClick={fetchOrders}
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                    className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors"
                   >
                     Reintentar
                   </button>
@@ -196,7 +196,7 @@ const MyOrdersPage: React.FC = () => {
                   <p className="text-gray-600 mb-4">No tienes pedidos aún</p>
                   <a
                     href="/catalog"
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors inline-block"
+                    className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors inline-block"
                   >
                     Ver Productos
                   </a>
@@ -256,7 +256,7 @@ const MyOrdersPage: React.FC = () => {
                                   setSelectedOrder(order);
                                   setShowOrderModal(true);
                                 }}
-                                className="text-green-600 hover:text-green-900 p-1"
+                                className="text-rose-600 hover:text-rose-900 p-1"
                                 title="Ver detalles"
                               >
                                 <Eye className="w-4 h-4" />

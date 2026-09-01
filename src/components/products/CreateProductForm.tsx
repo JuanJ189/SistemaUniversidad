@@ -293,7 +293,7 @@ const CreateProductForm: React.FC<CreateProductFormProps> = ({ onSubmit, onCance
             </button>
             <button
               type="submit"
-              className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm sm:text-base"
+              className="w-full sm:w-auto px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 text-sm sm:text-base"
             >
               Crear Producto
             </button>

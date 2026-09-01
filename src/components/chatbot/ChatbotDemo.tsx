@@ -108,8 +108,8 @@ const ChatbotDemo: React.FC = () => {
             onClick={() => setActiveFeature(feature.id)}
             className={`p-4 rounded-lg border-2 transition-all duration-200 ${
               activeFeature === feature.id
-                ? 'border-green-500 bg-green-50 text-green-700'
-                : 'border-gray-200 hover:border-green-300 hover:bg-green-25'
+                ? 'border-rose-500 bg-rose-50 text-rose-700'
+                : 'border-gray-200 hover:border-rose-300 hover:bg-rose-50'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -199,9 +199,9 @@ const ChatbotDemo: React.FC = () => {
 
       {/* Call to action */}
       <div className="mt-8 text-center">
-        <div className="bg-gradient-to-r from-green-500 to-rose-600 text-white p-6 rounded-lg">
+        <div className="bg-gradient-to-r from-rose-500 to-rose-600 text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-2">¡Prueba el Chatbot Ahora!</h3>
-          <p className="text-green-100 mb-4">
+          <p className="text-rose-100 mb-4">
             Haz clic en el botón flotante del chat para experimentar la IA en acción
           </p>
           <div className="flex items-center justify-center gap-2 text-sm">

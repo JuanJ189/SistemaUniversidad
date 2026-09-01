@@ -146,7 +146,7 @@ const ProductManagementPage: React.FC = () => {
             <div className="flex gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="bg-green-600 hover:bg-green-700 text-white px-3 sm:px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base w-full sm:w-auto"
+                className="bg-rose-600 hover:bg-rose-700 text-white px-3 sm:px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors text-sm sm:text-base w-full sm:w-auto"
               >
                 <Plus size={16} className="sm:hidden" />
                 <Plus size={20} className="hidden sm:block" />
@@ -296,7 +296,7 @@ const ProductManagementPage: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => openEditModal(product)}
-                                  className="text-green-600 hover:text-green-900 p-1"
+                                  className="text-rose-600 hover:text-rose-900 p-1"
                                   title="Editar producto"
                                 >
                                   <Edit size={16} />
@@ -403,7 +403,7 @@ const ProductManagementPage: React.FC = () => {
                           </button>
                           <button
                             onClick={() => openEditModal(product)}
-                            className="text-green-600 hover:text-green-900 p-2 hover:bg-green-50 rounded-lg transition-colors"
+                            className="text-rose-600 hover:text-rose-900 p-2 hover:bg-rose-50 rounded-lg transition-colors"
                             title="Editar producto"
                           >
                             <Edit size={16} />
@@ -463,7 +463,7 @@ const ProductManagementPage: React.FC = () => {
                               onClick={() => setCurrentPage(page)}
                               className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                                 page === currentPage
-                                  ? 'z-10 bg-green-50 border-green-500 text-green-600'
+                                  ? 'z-10 bg-rose-50 border-rose-500 text-rose-600'
                                   : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
                               }`}
                             >
@@ -672,7 +672,7 @@ const EditProductModal: React.FC<EditProductModalProps> = ({ product, onClose, o
             </button>
             <button
               type="submit"
-              className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm sm:text-base"
+              className="w-full sm:w-auto px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 text-sm sm:text-base"
             >
               Guardar Cambios
             </button>

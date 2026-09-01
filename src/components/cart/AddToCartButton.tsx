@@ -45,7 +45,7 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-lg hover:shadow-xl',
+    primary: 'bg-rose-600 text-white hover:bg-rose-700 focus:ring-rose-500 shadow-lg hover:shadow-xl',
     secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
     icon: 'bg-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-500',
   };

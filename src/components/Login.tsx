@@ -128,7 +128,7 @@ export const Login = (): React.ReactElement => {
               content="Iniciar Sesión"
               width="full"
               disabled={isLoading}
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-rose-600 hover:bg-rose-700"
             >
               {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
             </Button.Submit>

@@ -208,7 +208,7 @@ const OrdersManagementPage: React.FC = () => {
                 </div>
                 <button
                   onClick={fetchOrders}
-                  className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                  className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <RefreshCw className="w-4 h-4" />
                   Actualizar
@@ -228,7 +228,7 @@ const OrdersManagementPage: React.FC = () => {
                   <p className="text-red-600 mb-4">{error}</p>
                   <button
                     onClick={fetchOrders}
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                    className="bg-rose-600 text-white px-4 py-2 rounded-lg hover:bg-rose-700 transition-colors"
                   >
                     Reintentar
                   </button>
@@ -307,7 +307,7 @@ const OrdersManagementPage: React.FC = () => {
                                     setSelectedOrder(order);
                                     setShowOrderModal(true);
                                   }}
-                                  className="text-green-600 hover:text-green-900 p-1"
+                                  className="text-rose-600 hover:text-rose-900 p-1"
                                   title="Ver detalles"
                                 >
                                   <Eye className="w-4 h-4" />
@@ -517,7 +517,7 @@ const OrdersManagementPage: React.FC = () => {
                   <button
                     onClick={() => updateOrderStatus(selectedOrder.id, 'Delivered')}
                     disabled={updatingStatus === selectedOrder.id}
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
+                    className="px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 disabled:opacity-50 transition-colors"
                   >
                     {updatingStatus === selectedOrder.id ? 'Procesando...' : 'Marcar como Entregado'}
                   </button>

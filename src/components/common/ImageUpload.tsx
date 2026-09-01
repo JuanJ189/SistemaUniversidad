@@ -117,7 +117,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         {!previewImage && (
           <div
             onClick={handleClickUpload}
-            className="w-24 h-24 sm:w-32 sm:h-32 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-green-400 hover:bg-green-50 transition-colors"
+            className="w-24 h-24 sm:w-32 sm:h-32 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-rose-400 hover:bg-rose-50 transition-colors"
           >
             <Upload size={20} className="text-gray-400 mb-1 sm:mb-2 sm:hidden" />
             <Upload size={24} className="text-gray-400 mb-2 hidden sm:block" />
@@ -132,7 +132,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           <button
             type="button"
             onClick={handleClickUpload}
-            className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm text-green-600 hover:text-green-700 hover:bg-green-50 rounded-lg transition-colors w-full sm:w-auto justify-center sm:justify-start"
+            className="flex items-center gap-2 px-3 py-2 text-xs sm:text-sm text-rose-600 hover:text-rose-700 hover:bg-rose-50 rounded-lg transition-colors w-full sm:w-auto justify-center sm:justify-start"
           >
             <ImageIcon size={14} className="sm:hidden" />
             <ImageIcon size={16} className="hidden sm:block" />

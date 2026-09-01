@@ -84,7 +84,7 @@ const CheckoutPage: React.FC = () => {
               <p className="text-gray-600 mb-6">No tienes productos en tu carrito para proceder al pago.</p>
               <button
                 onClick={() => navigate('/catalog')}
-                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+                className="bg-rose-600 text-white px-6 py-3 rounded-lg hover:bg-rose-700 transition-colors"
               >
                 Ver Productos
               </button>
@@ -282,7 +282,7 @@ const CheckoutPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isProcessing}
-                      className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+                      className="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
                     >
                       {isProcessing ? 'Procesando...' : `Pagar ${formatPrice(cart.total)}`}
                     </button>

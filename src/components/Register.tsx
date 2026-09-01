@@ -208,7 +208,7 @@ export const Register = (): React.ReactElement => {
               content="Crear Cuenta"
               width="full"
               disabled={isLoading}
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-rose-600 hover:bg-rose-700"
             >
               {isLoading ? 'Creando cuenta...' : 'Crear Cuenta'}
             </Button.Submit>

@@ -135,7 +135,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       {!isOpen && (
                   <button
             onClick={toggleChat}
-            className="bg-gradient-to-r from-green-600 to-rose-600 hover:from-green-700 hover:to-rose-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            className="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
             title="Abrir chat con asistente virtual con IA"
           >
             <div className="relative">
@@ -149,7 +149,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       {isOpen && (
         <div className="bg-white rounded-lg shadow-2xl w-80 sm:w-96 h-[400px] sm:h-[450px] flex flex-col border border-gray-200">
           {/* Header */}
-                      <div className="bg-gradient-to-r from-green-600 to-rose-600 text-white p-3 rounded-t-lg flex items-center justify-between">
+                      <div className="bg-gradient-to-r from-rose-500 to-rose-600 text-white p-3 rounded-t-lg flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <Bot size={18} />
@@ -178,7 +178,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 <div
                   className={`max-w-[85%] rounded-lg p-2.5 ${
                     message.isUser
-                      ? 'bg-green-600 text-white'
+                      ? 'bg-rose-600 text-white'
                       : 'bg-gray-100 text-gray-800'
                   }`}
                 >
@@ -315,7 +315,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
               <div className="flex justify-start">
                 <div className="bg-gray-100 rounded-lg p-3">
                   <div className="flex items-center gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-rose-600"></div>
                     <span className="text-sm text-gray-600">Escribiendo...</span>
                   </div>
                 </div>
@@ -343,13 +343,13 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage(inputMessage)}
                 placeholder="Escribe tu mensaje..."
-                className="flex-1 px-2.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                className="flex-1 px-2.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent text-sm"
                 disabled={isLoading}
               />
               <button
                 onClick={() => handleSendMessage(inputMessage)}
                 disabled={!inputMessage.trim() || isLoading}
-                className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="px-3 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Send size={14} />
               </button>

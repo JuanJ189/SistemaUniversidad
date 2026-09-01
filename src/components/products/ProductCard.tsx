@@ -93,7 +93,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Nombre del producto */}
-        <h3 className="font-semibold text-gray-900 text-sm mb-2 line-clamp-2 group-hover:text-green-600 transition-colors">
+        <h3 className="font-semibold text-gray-900 text-sm mb-2 line-clamp-2 group-hover:text-rose-600 transition-colors">
           {product.name}
         </h3>
 
@@ -115,7 +115,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="flex items-center gap-2 mb-2">
           {product.discountPrice && product.discountPrice < product.price ? (
             <>
-              <span className="text-lg font-bold text-green-600">
+              <span className="text-lg font-bold text-rose-600">
                 {formatPrice(product.discountPrice)}
               </span>
               <span className="text-sm text-gray-400 line-through">
