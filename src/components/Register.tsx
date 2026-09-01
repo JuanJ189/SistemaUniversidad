@@ -219,7 +219,7 @@ export const Register = (): React.ReactElement => {
               ¿Ya tienes una cuenta?{' '}
               <Link 
                 to="/login" 
-                className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                className="text-rose-400 hover:text-rose-300 font-medium transition-colors"
               >
                 Inicia sesión aquí
               </Link>

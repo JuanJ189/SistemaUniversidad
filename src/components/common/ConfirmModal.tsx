@@ -40,8 +40,8 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
       case 'info':
         return {
           icon: 'ℹ️',
-          confirmButton: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
-          borderColor: 'border-blue-200'
+          confirmButton: 'bg-rose-600 hover:bg-rose-700 focus:ring-rose-500',
+          borderColor: 'border-rose-200'
         };
       default:
         return {

@@ -114,7 +114,7 @@ export const Login = (): React.ReactElement => {
                 <p className="text-red-500 text-sm mt-1">{errors.password}</p>
               )}
               <div className="text-right mt-2">
-                <a href="#" className="text-blue-400 hover:text-blue-300 text-sm transition-colors" onClick={(e) => { e.preventDefault(); navigate('/reset-password'); }}>
+                <a href="#" className="text-rose-400 hover:text-rose-300 text-sm transition-colors" onClick={(e) => { e.preventDefault(); navigate('/reset-password'); }}>
                   ¿Olvidaste la contraseña?
                 </a>
               </div>
@@ -139,7 +139,7 @@ export const Login = (): React.ReactElement => {
               ¿No tienes una cuenta?{' '}
               <Link 
                 to="/register" 
-                className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                className="text-rose-400 hover:text-rose-300 font-medium transition-colors"
               >
                 Regístrate
               </Link>

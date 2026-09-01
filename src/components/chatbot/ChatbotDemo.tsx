@@ -179,9 +179,9 @@ const ChatbotDemo: React.FC = () => {
 
       {/* Estadísticas del sistema */}
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="text-center p-4 bg-blue-50 rounded-lg">
-          <div className="text-2xl font-bold text-blue-600">6</div>
-          <div className="text-sm text-blue-700">Tipos de Intención</div>
+        <div className="text-center p-4 bg-rose-50 rounded-lg">
+          <div className="text-2xl font-bold text-rose-600">6</div>
+          <div className="text-sm text-rose-700">Tipos de Intención</div>
         </div>
         <div className="text-center p-4 bg-green-50 rounded-lg">
           <div className="text-2xl font-bold text-green-600">95%</div>
@@ -199,7 +199,7 @@ const ChatbotDemo: React.FC = () => {
 
       {/* Call to action */}
       <div className="mt-8 text-center">
-        <div className="bg-gradient-to-r from-green-500 to-blue-600 text-white p-6 rounded-lg">
+        <div className="bg-gradient-to-r from-green-500 to-rose-600 text-white p-6 rounded-lg">
           <h3 className="text-xl font-bold mb-2">¡Prueba el Chatbot Ahora!</h3>
           <p className="text-green-100 mb-4">
             Haz clic en el botón flotante del chat para experimentar la IA en acción

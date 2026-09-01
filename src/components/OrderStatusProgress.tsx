@@ -42,7 +42,7 @@ const OrderStatusProgress: React.FC<OrderStatusProgressProps> = ({ status, class
                 ${isCompleted 
                   ? 'bg-green-500 border-green-500 text-white' 
                   : isCurrent
-                  ? 'bg-blue-500 border-blue-500 text-white'
+                  ? 'bg-rose-500 border-rose-500 text-white'
                   : 'bg-gray-100 border-gray-300 text-gray-400'
                 }
               `}>

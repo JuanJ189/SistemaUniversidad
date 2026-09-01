@@ -135,7 +135,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       {!isOpen && (
                   <button
             onClick={toggleChat}
-            className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            className="bg-gradient-to-r from-green-600 to-rose-600 hover:from-green-700 hover:to-rose-700 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
             title="Abrir chat con asistente virtual con IA"
           >
             <div className="relative">
@@ -149,7 +149,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       {isOpen && (
         <div className="bg-white rounded-lg shadow-2xl w-80 sm:w-96 h-[400px] sm:h-[450px] flex flex-col border border-gray-200">
           {/* Header */}
-                      <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-3 rounded-t-lg flex items-center justify-between">
+                      <div className="bg-gradient-to-r from-green-600 to-rose-600 text-white p-3 rounded-t-lg flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <Bot size={18} />

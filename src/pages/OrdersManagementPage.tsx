@@ -58,7 +58,7 @@ const OrdersManagementPage: React.FC = () => {
 
   const statusColors = {
     Pending: 'bg-yellow-100 text-yellow-800',
-    Processing: 'bg-blue-100 text-blue-800',
+    Processing: 'bg-rose-100 text-rose-800',
     Shipped: 'bg-purple-100 text-purple-800',
     Delivered: 'bg-green-100 text-green-800'
   };
@@ -316,7 +316,7 @@ const OrdersManagementPage: React.FC = () => {
                                   <button
                                     onClick={() => updateOrderStatus(order.id, 'Processing')}
                                     disabled={updatingStatus === order.id}
-                                    className="text-blue-600 hover:text-blue-900 p-1 disabled:opacity-50"
+                                    className="text-rose-600 hover:text-rose-900 p-1 disabled:opacity-50"
                                     title="Marcar como procesando"
                                   >
                                     <RefreshCw className={`w-4 h-4 ${updatingStatus === order.id ? 'animate-spin' : ''}`} />
@@ -499,7 +499,7 @@ const OrdersManagementPage: React.FC = () => {
                   <button
                     onClick={() => updateOrderStatus(selectedOrder.id, 'Processing')}
                     disabled={updatingStatus === selectedOrder.id}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                    className="px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 disabled:opacity-50 transition-colors"
                   >
                     {updatingStatus === selectedOrder.id ? 'Procesando...' : 'Marcar como Procesando'}
                   </button>

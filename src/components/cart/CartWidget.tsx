@@ -39,7 +39,7 @@ export const CartWidget: React.FC = () => {
   if (loading) {
     return (
       <div className="fixed bottom-4 right-4 z-50">
-        <button className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        <button className="bg-rose-600 text-white p-3 rounded-full shadow-lg hover:bg-rose-700 transition-colors">
           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
         </button>
       </div>

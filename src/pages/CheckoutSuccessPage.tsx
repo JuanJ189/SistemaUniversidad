@@ -69,8 +69,8 @@ const CheckoutSuccessPage: React.FC = () => {
             </div>
 
             {/* Información de contacto */}
-            <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-800">
+            <div className="mt-8 p-4 bg-rose-50 rounded-lg">
+              <p className="text-sm text-rose-800">
                 ¿Tienes alguna pregunta? Contáctanos en{' '}
                 <a href="mailto:support@geeks.com" className="font-medium underline">
                   support@geeks.com

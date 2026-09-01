@@ -289,7 +289,7 @@ const ProductManagementPage: React.FC = () => {
                               <div className="flex justify-end gap-2">
                                 <button
                                   onClick={() => navigate(`/catalog/${product.id}`)}
-                                  className="text-blue-600 hover:text-blue-900 p-1"
+                                  className="text-rose-600 hover:text-rose-900 p-1"
                                   title="Ver producto"
                                 >
                                   <Eye size={16} />
@@ -396,7 +396,7 @@ const ProductManagementPage: React.FC = () => {
                         <div className="flex justify-end gap-2 pt-2 border-t border-gray-100">
                           <button
                             onClick={() => navigate(`/catalog/${product.id}`)}
-                            className="text-blue-600 hover:text-blue-900 p-2 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="text-rose-600 hover:text-rose-900 p-2 hover:bg-rose-50 rounded-lg transition-colors"
                             title="Ver producto"
                           >
                             <Eye size={16} />

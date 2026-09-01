@@ -100,7 +100,7 @@ const ResetPasswordPage: React.FC = () => {
             </button>
           </form>
           <div className="text-center mt-6">
-            <button onClick={() => navigate('/login')} className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors">
+            <button onClick={() => navigate('/login')} className="text-rose-400 hover:text-rose-300 text-sm font-medium transition-colors">
               Volver al login
             </button>
           </div>
