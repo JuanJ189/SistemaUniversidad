@@ -44,8 +44,8 @@ const ResetPasswordPage: React.FC = () => {
       {/* Sección izquierda: Logo, igual que en login */}
       <section className="hidden lg:flex lg:w-1/2 bg-[#0C0C0C] items-center justify-center">
         <img 
-          src="/geeks.png" 
-          alt="GEEKS Logo" 
+          src="/logo-margen.png"
+          alt="MARGEN Logo"
           className="w-[960px] h-[960px]"
         />
       </section>

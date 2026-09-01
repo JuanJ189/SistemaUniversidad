@@ -69,8 +69,8 @@ const Sidebar = () => {
         <div className="flex h-16 items-center justify-between px-4 border-b border-gray-700">
           {!isCollapsed && (
             <div className="flex items-center space-x-2">
-              <img src="/geeks.png" alt="GEEKS" className="w-8 h-8 rounded" />
-              <span className="text-white font-semibold text-lg">GEEKS</span>
+              <img src="/logo-margen.png"alt="MARGEN" className="w-8 h-8 rounded" />
+              <span className="text-white font-semibold text-lg">MARGEN</span>
             </div>
           )}
           <button

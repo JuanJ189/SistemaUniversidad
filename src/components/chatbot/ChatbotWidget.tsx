@@ -33,7 +33,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
   const addWelcomeMessage = () => {
           const welcomeMessage: ChatMessage = {
         id: 'welcome',
-        text: '¡Hola! Soy tu asistente virtual de GEEKS con IA avanzada. ¿En qué puedo ayudarte hoy? 🤖✨',
+        text: '¡Hola! Soy tu asistente virtual de MARGEN con IA avanzada. ¿En qué puedo ayudarte hoy? 🤖✨',
         isUser: false,
         timestamp: new Date(),
         type: 'text',
@@ -156,7 +156,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">Asistente IA GEEKS</div>
+                  <div className="text-sm font-semibold">Asistente IA MARGEN</div>
                   <div className="text-xs opacity-90">Powered by Gemini Pro</div>
                 </div>
               </div>

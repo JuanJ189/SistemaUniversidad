@@ -92,7 +92,7 @@ const ChatbotDemo: React.FC = () => {
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Bot className="text-green-600" size={32} />
-          <h2 className="text-3xl font-bold text-gray-900">Asistente Virtual GEEKS</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Asistente Virtual MARGEN </h2>
         </div>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Un chatbot inteligente que utiliza técnicas avanzadas de Inteligencia Artificial 

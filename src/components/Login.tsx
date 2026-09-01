@@ -65,8 +65,8 @@ export const Login = (): React.ReactElement => {
       {/* Left Section - Logo */}
       <section className="hidden lg:flex lg:w-1/2 bg-[#0C0C0C] items-center justify-center">
         <img 
-          src="/geeks.png" 
-          alt="GEEKS Logo" 
+          src="/logo-margen.png"
+          alt="MARGEN Logo"
           className="w-[960px] h-[960px]"
         />
       </section>
@@ -76,7 +76,7 @@ export const Login = (): React.ReactElement => {
         <div className="w-full max-w-lg px-8 py-12">
           <header className="text-left mb-8">
             <h1 className="text-4xl font-bold text-white mb-2">
-              Bienvenido a Toon-Geek
+              Bienvenido a MARGEN
             </h1>
             <p className="text-gray-300">
               Por favor ingrese sus credenciales
