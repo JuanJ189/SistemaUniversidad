@@ -38,7 +38,7 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
         {item.productImage && item.productImage.trim() !== '' ? (
           <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
             <img
-              src={item.productImage.startsWith('http') ? item.productImage : `http://localhost:5000${item.productImage}`}
+              src={item.productImage.startsWith('http') ? item.productImage : `https://practica-univerisidad-e2enhzfhcvaefaf9.centralus-01.azurewebsites.net${item.productImage}`}
               alt={item.productName}
               className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
               onLoad={() => {
